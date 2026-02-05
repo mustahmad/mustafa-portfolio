@@ -258,35 +258,9 @@
         </div>
         </div>
 
-        <!-- Portfolio Popup (desktop hover) -->
-        <div class="portfolio-popup" id="portfolioPopup">
-            <div class="popup-image">
-                <img src="" alt="Project preview" id="popupImage">
-            </div>
-            <div class="popup-content">
-                <h3 id="popupTitle"></h3>
-                <p id="popupDescription"></p>
-            </div>
-        </div>
-
-        <!-- Portfolio Modal (mobile tap) -->
-        <div class="mobile-modal" id="mobileModal">
-            <div class="mobile-modal-overlay"></div>
-            <div class="mobile-modal-card">
-                <button class="mobile-modal-close" id="mobileModalClose">&times;</button>
-                <div class="mobile-modal-image">
-                    <img src="" alt="" id="modalImage">
-                </div>
-                <div class="mobile-modal-info">
-                    <h3 id="modalTitle"></h3>
-                    <p id="modalDescription"></p>
-                    <a href="#" target="_blank" class="cta-button primary mobile-modal-link" id="modalLink" data-ru="Открыть проект" data-en="Open project">Открыть проект</a>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
             <div class="portfolio-cta fade-in-scroll">
+                <a href="portfolio.html" class="cta-button secondary magnetic" data-ru="Подробнее о портфолио" data-en="Portfolio details">Подробнее о портфолио</a>
                 <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary magnetic" data-ru="Хочу так же" data-en="I want this too">Хочу так же</a>
             </div>
         </div>
@@ -626,10 +600,6 @@
         // Portfolio Marquee
         const marqueeTrack = document.querySelector('.marquee-track');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const popup = document.getElementById('portfolioPopup');
-        const popupImage = document.getElementById('popupImage');
-        const popupTitle = document.getElementById('popupTitle');
-        const popupDescription = document.getElementById('popupDescription');
 
         // Duplicate items for seamless loop
         if (marqueeTrack) {
@@ -640,109 +610,25 @@
 
             const allPortfolioItems = document.querySelectorAll('.portfolio-item');
 
-            // Modal elements
-            const mobileModal = document.getElementById('mobileModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const modalLink = document.getElementById('modalLink');
-            const modalClose = document.getElementById('mobileModalClose');
-            const modalOverlay = mobileModal.querySelector('.mobile-modal-overlay');
-
-            function openModal(item) {
-                const title = item.dataset.title;
-                const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
-                const image = item.dataset.image;
-                const link = item.dataset.link;
-
-                modalTitle.textContent = title;
-                modalDescription.textContent = description;
-                modalImage.src = image;
-
-                if (link) {
-                    modalLink.href = link;
-                    modalLink.classList.remove('hidden');
-                    modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
-                } else {
-                    modalLink.classList.add('hidden');
-                }
-
-                mobileModal.classList.add('visible');
-            }
-
-            function closeModal() {
-                mobileModal.classList.remove('visible');
-                document.body.style.overflow = '';
-                marqueeTrack.style.animationPlayState = 'running';
-            }
-
-            // Small popup functions (cursor-following popup on desktop)
-            function showSmallPopup(item, e) {
-                const title = item.dataset.title;
-                const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
-                const image = item.dataset.image;
-                popupTitle.textContent = title;
-                popupDescription.textContent = description;
-                popupImage.src = image;
-                popup.classList.add('visible');
-                moveSmallPopup(e);
-            }
-
-            function moveSmallPopup(e) {
-                const x = e.clientX + 20;
-                const y = e.clientY - popup.offsetHeight / 2;
-                popup.style.left = `${x}px`;
-                popup.style.top = `${y}px`;
-            }
-
-            function hideSmallPopup() {
-                popup.classList.remove('visible');
-            }
-
             if (!isMobile) {
-                // Desktop: hover shows small popup, click opens link
+                // Desktop: pause marquee on hover, click opens link
                 marqueeTrack.addEventListener('mouseenter', () => {
                     marqueeTrack.style.animationPlayState = 'paused';
                 });
 
                 marqueeTrack.addEventListener('mouseleave', () => {
-                    hideSmallPopup();
                     marqueeTrack.style.animationPlayState = 'running';
-                });
-
-                allPortfolioItems.forEach(item => {
-                    item.style.cursor = item.dataset.link ? 'pointer' : 'default';
-
-                    item.addEventListener('mouseenter', (e) => {
-                        showSmallPopup(item, e);
-                    });
-
-                    item.addEventListener('mousemove', moveSmallPopup);
-                    item.addEventListener('mouseleave', hideSmallPopup);
-
-                    item.addEventListener('click', () => {
-                        const link = item.dataset.link;
-                        if (link) {
-                            window.open(link, '_blank');
-                        }
-                    });
-                });
-            } else {
-                // Mobile: tap → show modal with overlay (all items)
-                allPortfolioItems.forEach(item => {
-                    item.style.cursor = 'pointer';
-                    item.addEventListener('click', () => {
-                        marqueeTrack.style.animationPlayState = 'paused';
-                        document.body.style.overflow = 'hidden';
-                        openModal(item);
-                    });
                 });
             }
 
-            modalClose.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', closeModal);
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
+            allPortfolioItems.forEach(item => {
+                item.style.cursor = item.dataset.link ? 'pointer' : 'default';
+                item.addEventListener('click', () => {
+                    const link = item.dataset.link;
+                    if (link) {
+                        window.open(link, '_blank');
+                    }
+                });
             });
         }
     </script>

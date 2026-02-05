@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио — Мустафа Ахмадуллин</title>
+    <meta name="description" content="Портфолио проектов: сайты, телеграм-боты, карточки товаров для маркетплейсов.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="MA"></a>
+        <ul class="nav-links">
+            <li><a href="index.html#services" data-ru="Услуги" data-en="Services">Услуги</a></li>
+            <li><a href="index.html#portfolio" data-ru="Портфолио" data-en="Portfolio">Портфолио</a></li>
+            <li><a href="index.html#about" data-ru="Обо мне" data-en="About">Обо мне</a></li>
+            <li><a href="index.html#contact" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="nav-cta" data-ru="Обсудить проект" data-en="Start a project">Обсудить проект</a>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <p class="section-label fade-in-up" data-ru="ПОРТФОЛИО" data-en="PORTFOLIO">ПОРТФОЛИО</p>
+            <h1 class="fade-in-up" data-ru="Мои проекты" data-en="My projects">Мои проекты</h1>
+            <p class="portfolio-hero-sub fade-in-up" data-ru="Сайты, телеграм-боты и карточки товаров — каждый проект решает конкретную задачу бизнеса" data-en="Websites, Telegram bots and product cards — each project solves a specific business task">Сайты, телеграм-боты и карточки товаров — каждый проект решает конкретную задачу бизнеса</p>
+        </div>
+    </section>
+
+    <!-- Websites -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="portfolio-category fade-in-up" data-ru="Сайты" data-en="Websites">Сайты</h2>
+            <div class="portfolio-grid">
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_mustafa.png" alt="Mustafa Website">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_mustafa.png" alt="Mustafa" class="project-logo">
+                            <h3>Mustafa Website</h3>
+                        </div>
+                        <p data-ru="Личный сайт-портфолио. Полностью спроектировал дизайн и написал код с нуля." data-en="Personal portfolio website. Fully designed and coded from scratch.">Личный сайт-портфолио. Полностью спроектировал дизайн и написал код с нуля.</p>
+                        <div class="project-tags">
+                            <span data-ru="Дизайн" data-en="Design">Дизайн</span>
+                            <span data-ru="Разработка" data-en="Development">Разработка</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_heritage.png" alt="Heritage">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_heritage.png" alt="Heritage" class="project-logo">
+                            <h3>Heritage</h3>
+                        </div>
+                        <p data-ru="Интернет-бутик мужской классической одежды. Дизайн и разработка сайта." data-en="Online boutique for men's classic clothing. Website design and development.">Интернет-бутик мужской классической одежды. Дизайн и разработка сайта.</p>
+                        <div class="project-tags">
+                            <span data-ru="Дизайн" data-en="Design">Дизайн</span>
+                            <span data-ru="Разработка" data-en="Development">Разработка</span>
+                            <span data-ru="Интернет-магазин" data-en="E-commerce">Интернет-магазин</span>
+                        </div>
+                        <a href="https://heritage-men.netlify.app/" target="_blank" class="project-link" data-ru="Открыть проект" data-en="Open project">Открыть проект →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram Bots -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="portfolio-category fade-in-up" data-ru="Телеграм-боты" data-en="Telegram bots">Телеграм-боты</h2>
+            <div class="portfolio-grid portfolio-grid-3">
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_afifa.png" alt="Afifa">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_afifa.jpg" alt="Afifa" class="project-logo">
+                            <h3>Afifa</h3>
+                        </div>
+                        <p data-ru="Телеграм-бот для ресторана арабской кухни. Меню, бронирование, заказы." data-en="Telegram bot for Arabic cuisine restaurant. Menu, reservations, orders.">Телеграм-бот для ресторана арабской кухни. Меню, бронирование, заказы.</p>
+                        <a href="https://t.me/afifarestaurantbot" target="_blank" class="project-link" data-ru="Открыть бота" data-en="Open bot">Открыть бота →</a>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_hatm.png" alt="Hatm">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_hatm.png" alt="Hatm" class="project-logo">
+                            <h3>Hatm</h3>
+                        </div>
+                        <p data-ru="Телеграм-бот для отслеживания прогресса чтения Корана." data-en="Telegram bot for tracking Quran reading progress.">Телеграм-бот для отслеживания прогресса чтения Корана.</p>
+                        <a href="https://t.me/hatmQuran_bot" target="_blank" class="project-link" data-ru="Открыть бота" data-en="Open bot">Открыть бота →</a>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_pushups.png" alt="Push-ups">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_pushups.jpg" alt="Push-ups" class="project-logo">
+                            <h3>Push-ups</h3>
+                        </div>
+                        <p data-ru="Телеграм-бот для отслеживания тренировок и отжиманий." data-en="Telegram bot for tracking workouts and push-ups.">Телеграм-бот для отслеживания тренировок и отжиманий.</p>
+                        <a href="https://t.me/doPushups_bot" target="_blank" class="project-link" data-ru="Открыть бота" data-en="Open bot">Открыть бота →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Cards -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="portfolio-category fade-in-up" data-ru="Карточки товаров" data-en="Product cards">Карточки товаров</h2>
+            <div class="portfolio-grid portfolio-grid-3">
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_xiaomi_vacuum.png" alt="Xiaomi Vacuum">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_xiaomi.png" alt="Xiaomi" class="project-logo">
+                            <h3>Xiaomi Vacuum</h3>
+                        </div>
+                        <p data-ru="Карточка товара для WB, Ozon. Робот-пылесос Xiaomi." data-en="Product card for WB, Ozon. Xiaomi robot vacuum cleaner.">Карточка товара для WB, Ozon. Робот-пылесос Xiaomi.</p>
+                        <a href="https://www.wildberries.ru/catalog/232434044/detail.aspx" target="_blank" class="project-link" data-ru="Открыть на WB" data-en="Open on WB">Открыть на WB →</a>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_smartwatch.png" alt="Smart Watch">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_smartwatch.svg" alt="Smart Watch" class="project-logo">
+                            <h3>Smart Watch</h3>
+                        </div>
+                        <p data-ru="Карточка товара для WB, Ozon. Смарт-часы Xiaomi." data-en="Product card for WB, Ozon. Xiaomi smart watch.">Карточка товара для WB, Ozon. Смарт-часы Xiaomi.</p>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_bombbar.png" alt="Bombbar">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_bombbar.png" alt="Bombbar" class="project-logo project-logo-wide">
+                            <h3>Bombbar</h3>
+                        </div>
+                        <p data-ru="Карточка товара для WB, Ozon. Протеин Bombbar." data-en="Product card for WB, Ozon. Bombbar protein.">Карточка товара для WB, Ozon. Протеин Bombbar.</p>
+                        <a href="https://www.ozon.ru/product/bombbar-protein-syvorotochnyy-bez-sahara-whey-protein-pro-shokolad-900-g-958702856/" target="_blank" class="project-link" data-ru="Открыть на Ozon" data-en="Open on Ozon">Открыть на Ozon →</a>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_vitameal.png" alt="Vitameal">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_vitameal.png" alt="Vitameal" class="project-logo">
+                            <h3>Vitameal</h3>
+                        </div>
+                        <p data-ru="Карточка товара для WB, Ozon. Калия цитрат — полезные добавки." data-en="Product card for WB, Ozon. Potassium citrate — health supplements.">Карточка товара для WB, Ozon. Калия цитрат — полезные добавки.</p>
+                        <a href="https://www.ozon.ru/product/kaliy-tsitrat-vitameal-dlya-serdtsa-i-sosudov-normalizatsii-davleniya-protiv-sudorog-1973642043/" target="_blank" class="project-link" data-ru="Открыть на Ozon" data-en="Open on Ozon">Открыть на Ozon →</a>
+                    </div>
+                </div>
+                <div class="project-card project-card-portrait fade-in-up">
+                    <div class="project-image">
+                        <img src="assets/screen_dutybox.png" alt="DutyBox">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <img src="assets/logo_dutybox.png" alt="DutyBox" class="project-logo">
+                            <h3>DutyBox</h3>
+                        </div>
+                        <p data-ru="Карточка товара для WB, Ozon. Гель для мытья посуды DutyBox." data-en="Product card for WB, Ozon. DutyBox dishwashing gel.">Карточка товара для WB, Ozon. Гель для мытья посуды DutyBox.</p>
+                        <a href="https://www.wildberries.ru/catalog/161224650/detail.aspx" target="_blank" class="project-link" data-ru="Открыть на WB" data-en="Open on WB">Открыть на WB →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-ru="Хотите такой же проект?" data-en="Want a project like this?">Хотите такой же проект?</h2>
+                <p data-ru="Обсудим вашу задачу и найдём лучшее решение" data-en="Let's discuss your task and find the best solution">Обсудим вашу задачу и найдём лучшее решение</p>
+                <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary large" data-ru="Написать в Telegram" data-en="Message on Telegram">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="MA">
+                    <span>Mustafa Akhmadullin</span>
+                </div>
+            </div>
+            <p class="copyright">© 2026 Mustafa Akhmadullin. <span data-ru="Все права защищены" data-en="All rights reserved">Все права защищены</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        let currentLang = 'ru';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else if (el.tagName === 'A' && el.href) {
+                        el.textContent = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+            document.documentElement.lang = lang;
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
