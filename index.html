@@ -676,7 +676,7 @@
                 marqueeTrack.style.animationPlayState = 'running';
             }
 
-            // Small popup functions (for portrait items on desktop)
+            // Small popup functions (cursor-following popup on desktop)
             function showSmallPopup(item, e) {
                 const title = item.dataset.title;
                 const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
@@ -700,50 +700,25 @@
             }
 
             if (!isMobile) {
-                // Desktop: different behavior for portrait vs landscape
-                let hoverCloseTimer = null;
-
+                // Desktop: hover shows small popup, click opens link
                 marqueeTrack.addEventListener('mouseenter', () => {
                     marqueeTrack.style.animationPlayState = 'paused';
                 });
 
                 marqueeTrack.addEventListener('mouseleave', () => {
                     hideSmallPopup();
-                    hoverCloseTimer = setTimeout(() => {
-                        closeModal();
-                        marqueeTrack.style.animationPlayState = 'running';
-                    }, 150);
-                });
-
-                // Keep modal open when mouse enters it
-                mobileModal.addEventListener('mouseenter', () => {
-                    clearTimeout(hoverCloseTimer);
-                });
-
-                mobileModal.addEventListener('mouseleave', () => {
-                    closeModal();
                     marqueeTrack.style.animationPlayState = 'running';
                 });
 
                 allPortfolioItems.forEach(item => {
                     item.style.cursor = item.dataset.link ? 'pointer' : 'default';
-                    const isPortrait = item.hasAttribute('data-portrait');
 
                     item.addEventListener('mouseenter', (e) => {
-                        clearTimeout(hoverCloseTimer);
-                        if (isPortrait) {
-                            closeModal();
-                            showSmallPopup(item, e);
-                        } else {
-                            hideSmallPopup();
-                            openModal(item);
-                        }
+                        showSmallPopup(item, e);
                     });
 
-                    if (isPortrait) {
-                        item.addEventListener('mousemove', moveSmallPopup);
-                        item.addEventListener('mouseleave', hideSmallPopup);
-                    }
+                    item.addEventListener('mousemove', moveSmallPopup);
+                    item.addEventListener('mouseleave', hideSmallPopup);
 
                     item.addEventListener('click', () => {
                         const link = item.dataset.link;
