@@ -188,27 +188,17 @@
 /* Arrow slide animation */
 .link-arrow {
     display: inline-block;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    position: relative;
 }
 
-.link-arrow-inner {
-    display: flex;
-    width: 200%;
-    transition: transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+.project-link:hover .link-arrow {
+    animation: arrow-slide-right 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-.link-arrow-inner span {
-    display: block;
-    width: 1em;
-    flex-shrink: 0;
-    text-align: center;
-}
-
-.project-link:hover .link-arrow-inner {
-    transform: translateX(-50%);
+@keyframes arrow-slide-right {
+    0% { transform: translateX(0); opacity: 1; }
+    45% { transform: translateX(8px); opacity: 0; }
+    55% { transform: translateX(-8px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 
 /* Fade-in animation */
