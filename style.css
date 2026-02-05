@@ -1001,9 +1001,9 @@ a {
     color: #555;
 }
 
-/* Mobile Portfolio Modal */
+/* Portfolio Modal (mobile + desktop) */
 .mobile-modal {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -1035,13 +1035,15 @@ a {
 .mobile-modal-card {
     position: relative;
     width: 100%;
-    max-width: 340px;
+    max-width: 480px;
     background: rgba(20, 20, 30, 0.98);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     transform: scale(0.9) translateY(20px);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 .mobile-modal.visible .mobile-modal-card {
@@ -1337,11 +1339,6 @@ a {
 
     .portfolio-popup {
         display: none;
-    }
-
-    /* Enable mobile modal */
-    .mobile-modal {
-        display: flex;
     }
 
     .about {

@@ -674,65 +674,53 @@
                 });
             }
 
-            if (isMobile) {
-                // Mobile: tap to show modal with project info
-                const mobileModal = document.getElementById('mobileModal');
-                const modalImage = document.getElementById('modalImage');
-                const modalTitle = document.getElementById('modalTitle');
-                const modalDescription = document.getElementById('modalDescription');
-                const modalLink = document.getElementById('modalLink');
-                const modalClose = document.getElementById('mobileModalClose');
-                const modalOverlay = mobileModal.querySelector('.mobile-modal-overlay');
+            // Modal for both mobile and desktop
+            const mobileModal = document.getElementById('mobileModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalLink = document.getElementById('modalLink');
+            const modalClose = document.getElementById('mobileModalClose');
+            const modalOverlay = mobileModal.querySelector('.mobile-modal-overlay');
 
-                allPortfolioItems.forEach(item => {
-                    item.style.cursor = 'pointer';
-                    item.addEventListener('click', () => {
-                        const title = item.dataset.title;
-                        const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
-                        const image = item.dataset.image;
-                        const link = item.dataset.link;
+            allPortfolioItems.forEach(item => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    const title = item.dataset.title;
+                    const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
+                    const image = item.dataset.image;
+                    const link = item.dataset.link;
 
-                        modalTitle.textContent = title;
-                        modalDescription.textContent = description;
-                        modalImage.src = image;
+                    modalTitle.textContent = title;
+                    modalDescription.textContent = description;
+                    modalImage.src = image;
 
-                        if (link) {
-                            modalLink.href = link;
-                            modalLink.classList.remove('hidden');
-                            modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
-                        } else {
-                            modalLink.classList.add('hidden');
-                        }
-
-                        marqueeTrack.style.animationPlayState = 'paused';
-                        mobileModal.classList.add('visible');
-                        document.body.style.overflow = 'hidden';
-                    });
-                });
-
-                function closeMobileModal() {
-                    mobileModal.classList.remove('visible');
-                    document.body.style.overflow = '';
-                    marqueeTrack.style.animationPlayState = 'running';
-                }
-
-                modalClose.addEventListener('click', closeMobileModal);
-                modalOverlay.addEventListener('click', closeMobileModal);
-            } else {
-                // Desktop: click to open link
-                allPortfolioItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        const link = item.dataset.link;
-                        if (link) {
-                            window.open(link, '_blank');
-                        }
-                    });
-
-                    if (item.dataset.link) {
-                        item.style.cursor = 'pointer';
+                    if (link) {
+                        modalLink.href = link;
+                        modalLink.classList.remove('hidden');
+                        modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
+                    } else {
+                        modalLink.classList.add('hidden');
                     }
+
+                    marqueeTrack.style.animationPlayState = 'paused';
+                    hidePopup();
+                    mobileModal.classList.add('visible');
+                    document.body.style.overflow = 'hidden';
                 });
+            });
+
+            function closeMobileModal() {
+                mobileModal.classList.remove('visible');
+                document.body.style.overflow = '';
+                marqueeTrack.style.animationPlayState = 'running';
             }
+
+            modalClose.addEventListener('click', closeMobileModal);
+            modalOverlay.addEventListener('click', closeMobileModal);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMobileModal();
+            });
         }
 
         function showPopup(e) {
