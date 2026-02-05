@@ -169,15 +169,46 @@
 }
 
 .project-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.9rem;
     font-weight: 600;
     color: #fff;
+}
+
+.link-text {
     transition: opacity 0.3s ease;
 }
 
-.project-link:hover {
+.project-link:hover .link-text {
     opacity: 0.7;
+}
+
+/* Arrow slide animation */
+.link-arrow {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+}
+
+.link-arrow-inner {
+    display: flex;
+    width: 200%;
+    transition: transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.link-arrow-inner span {
+    display: block;
+    width: 1em;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.project-link:hover .link-arrow-inner {
+    transform: translateX(-50%);
 }
 
 /* Fade-in animation */
