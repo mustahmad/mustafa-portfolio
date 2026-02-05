@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <!-- Aurora Background -->
+    <canvas id="auroraCanvas" class="aurora-bg"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar">
         <a href="index.html" class="logo"><img src="assets/logo.png" alt="MA"></a>
@@ -267,6 +270,112 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Aurora Borealis Effect — only on desktop
+        const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const auroraCanvas = document.getElementById('auroraCanvas');
+
+        if (!isMobile) {
+            const ctx = auroraCanvas.getContext('2d');
+            const glassCanvas = document.createElement('canvas');
+            const glassCtx = glassCanvas.getContext('2d');
+
+            function resizeCanvas() {
+                auroraCanvas.width = window.innerWidth;
+                auroraCanvas.height = window.innerHeight;
+                glassCanvas.width = window.innerWidth;
+                glassCanvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const blobs = [
+                { x: 0.15, y: 0.25, radius: 0.6, color: { r: 90, g: 190, b: 110 } },
+                { x: 0.85, y: 0.2, radius: 0.55, color: { r: 80, g: 50, b: 200 } },
+                { x: 0.5, y: 0.15, radius: 0.4, color: { r: 60, g: 100, b: 180 } }
+            ];
+
+            const trailLength = 25;
+            const trail = [];
+            let cursorX = window.innerWidth / 2;
+            let cursorY = window.innerHeight / 2;
+            let prevCursorX = cursorX;
+            let prevCursorY = cursorY;
+            let glowIntensity = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+            });
+
+            function drawAurora() {
+                const w = auroraCanvas.width;
+                const h = auroraCanvas.height;
+
+                const dx = cursorX - prevCursorX;
+                const dy = cursorY - prevCursorY;
+                const speed = Math.sqrt(dx * dx + dy * dy);
+
+                if (speed > 1) {
+                    glowIntensity += (1 - glowIntensity) * 0.08;
+                } else {
+                    glowIntensity *= 0.96;
+                }
+
+                prevCursorX = cursorX;
+                prevCursorY = cursorY;
+
+                trail.push({ x: cursorX, y: cursorY });
+                while (trail.length > trailLength) trail.shift();
+
+                ctx.fillStyle = '#0a0a12';
+                ctx.fillRect(0, 0, w, h);
+
+                blobs.forEach((blob) => {
+                    const centerX = blob.x * w;
+                    const centerY = blob.y * h;
+                    const radius = blob.radius * Math.max(w, h);
+                    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+                    const { r, g, b } = blob.color;
+                    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.8)`);
+                    gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, 0.4)`);
+                    gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, 0.15)`);
+                    gradient.addColorStop(1, 'transparent');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, w, h);
+                });
+
+                if (glowIntensity > 0.005 && speed > 0.5) {
+                    const intensity = glowIntensity * Math.min(speed / 3, 1);
+                    const maxD = 50;
+                    const dX = Math.max(-maxD, Math.min(maxD, dx * 10));
+                    const dY = Math.max(-maxD, Math.min(maxD, dy * 10));
+                    const baseRadius = 250;
+
+                    glassCtx.clearRect(0, 0, w, h);
+                    glassCtx.drawImage(auroraCanvas, 0, 0);
+
+                    const steps = 24;
+                    for (let i = steps; i >= 1; i--) {
+                        const t = i / steps;
+                        const ringRadius = baseRadius * t;
+                        const strength = 1 - t;
+                        const fade = strength * strength * strength;
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(cursorX, cursorY, ringRadius, 0, Math.PI * 2);
+                        ctx.clip();
+                        ctx.globalAlpha = Math.min(fade * intensity * 2, 1);
+                        ctx.drawImage(glassCanvas, dX * strength, dY * strength);
+                        ctx.restore();
+                    }
+                }
+
+                requestAnimationFrame(drawAurora);
+            }
+
+            drawAurora();
+        }
     </script>
 </body>
 
