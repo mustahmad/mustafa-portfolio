@@ -640,41 +640,7 @@
 
             const allPortfolioItems = document.querySelectorAll('.portfolio-item');
 
-            if (!isMobile) {
-                // Desktop: popup on hover, pause marquee
-                marqueeTrack.addEventListener('mouseenter', () => {
-                    marqueeTrack.style.animationPlayState = 'paused';
-                });
-
-                marqueeTrack.addEventListener('mouseleave', () => {
-                    marqueeTrack.style.animationPlayState = 'running';
-                    hidePopup();
-                });
-
-                allPortfolioItems.forEach(item => {
-                    item.addEventListener('mouseenter', (e) => {
-                        const title = item.dataset.title;
-                        const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
-                        const image = item.dataset.image;
-
-                        popupTitle.textContent = title;
-                        popupDescription.textContent = description;
-                        popupImage.src = image;
-
-                        showPopup(e);
-                    });
-
-                    item.addEventListener('mousemove', (e) => {
-                        movePopup(e);
-                    });
-
-                    item.addEventListener('mouseleave', () => {
-                        hidePopup();
-                    });
-                });
-            }
-
-            // Modal for both mobile and desktop
+            // Modal elements
             const mobileModal = document.getElementById('mobileModal');
             const modalImage = document.getElementById('modalImage');
             const modalTitle = document.getElementById('modalTitle');
@@ -683,43 +649,89 @@
             const modalClose = document.getElementById('mobileModalClose');
             const modalOverlay = mobileModal.querySelector('.mobile-modal-overlay');
 
-            allPortfolioItems.forEach(item => {
-                item.style.cursor = 'pointer';
-                item.addEventListener('click', () => {
-                    const title = item.dataset.title;
-                    const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
-                    const image = item.dataset.image;
-                    const link = item.dataset.link;
+            function openModal(item) {
+                const title = item.dataset.title;
+                const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
+                const image = item.dataset.image;
+                const link = item.dataset.link;
 
-                    modalTitle.textContent = title;
-                    modalDescription.textContent = description;
-                    modalImage.src = image;
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                modalImage.src = image;
 
-                    if (link) {
-                        modalLink.href = link;
-                        modalLink.classList.remove('hidden');
-                        modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
-                    } else {
-                        modalLink.classList.add('hidden');
-                    }
+                if (link) {
+                    modalLink.href = link;
+                    modalLink.classList.remove('hidden');
+                    modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
+                } else {
+                    modalLink.classList.add('hidden');
+                }
 
-                    marqueeTrack.style.animationPlayState = 'paused';
-                    hidePopup();
-                    mobileModal.classList.add('visible');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
+                mobileModal.classList.add('visible');
+            }
 
-            function closeMobileModal() {
+            function closeModal() {
                 mobileModal.classList.remove('visible');
                 document.body.style.overflow = '';
                 marqueeTrack.style.animationPlayState = 'running';
             }
 
-            modalClose.addEventListener('click', closeMobileModal);
-            modalOverlay.addEventListener('click', closeMobileModal);
+            if (!isMobile) {
+                // Desktop: hover → show modal, click → open link
+                let hoverCloseTimer = null;
+
+                marqueeTrack.addEventListener('mouseenter', () => {
+                    marqueeTrack.style.animationPlayState = 'paused';
+                });
+
+                marqueeTrack.addEventListener('mouseleave', () => {
+                    hoverCloseTimer = setTimeout(() => {
+                        closeModal();
+                        marqueeTrack.style.animationPlayState = 'running';
+                    }, 150);
+                });
+
+                // Keep modal open when mouse enters it
+                mobileModal.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverCloseTimer);
+                });
+
+                mobileModal.addEventListener('mouseleave', () => {
+                    closeModal();
+                    marqueeTrack.style.animationPlayState = 'running';
+                });
+
+                allPortfolioItems.forEach(item => {
+                    item.style.cursor = item.dataset.link ? 'pointer' : 'default';
+
+                    item.addEventListener('mouseenter', () => {
+                        clearTimeout(hoverCloseTimer);
+                        openModal(item);
+                    });
+
+                    item.addEventListener('click', () => {
+                        const link = item.dataset.link;
+                        if (link) {
+                            window.open(link, '_blank');
+                        }
+                    });
+                });
+            } else {
+                // Mobile: tap → show modal with overlay
+                allPortfolioItems.forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', () => {
+                        marqueeTrack.style.animationPlayState = 'paused';
+                        document.body.style.overflow = 'hidden';
+                        openModal(item);
+                    });
+                });
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeMobileModal();
+                if (e.key === 'Escape') closeModal();
             });
         }
 
