@@ -1001,6 +1001,112 @@ a {
     color: #555;
 }
 
+/* Mobile Portfolio Modal */
+.mobile-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.mobile-modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    background: rgba(20, 20, 30, 0.98);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mobile-modal.visible .mobile-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.mobile-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.mobile-modal-image {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.mobile-modal-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mobile-modal-info {
+    padding: 20px;
+}
+
+.mobile-modal-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.mobile-modal-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.mobile-modal-link {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+}
+
+.mobile-modal-link.hidden {
+    display: none;
+}
+
 /* Magnetic */
 .magnetic {
     display: inline-block;
@@ -1058,9 +1164,26 @@ a {
 }
 
 @media (max-width: 768px) {
-    /* Hide aurora canvas on mobile — huge performance drain */
+    /* Hide canvas aurora on mobile — use CSS aurora instead */
     .aurora-bg {
         display: none !important;
+    }
+
+    /* CSS aurora background for mobile — lightweight alternative */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.35;
+        background:
+            radial-gradient(ellipse at 15% 25%, rgba(90, 190, 110, 0.7) 0%, rgba(90, 190, 110, 0.12) 40%, transparent 60%),
+            radial-gradient(ellipse at 85% 20%, rgba(80, 50, 200, 0.7) 0%, rgba(80, 50, 200, 0.12) 40%, transparent 60%),
+            radial-gradient(ellipse at 50% 15%, rgba(60, 100, 180, 0.7) 0%, rgba(60, 100, 180, 0.12) 40%, transparent 60%);
     }
 
     /* Replace backdrop-filter with solid backgrounds on mobile */
@@ -1216,6 +1339,11 @@ a {
         display: none;
     }
 
+    /* Enable mobile modal */
+    .mobile-modal {
+        display: flex;
+    }
+
     .about {
         padding: 80px 0;
     }
@@ -1236,6 +1364,10 @@ a {
 
     .stat-number {
         font-size: 1.5rem;
+    }
+
+    .stat-vibe-logo {
+        height: 22px;
     }
 
     .cta-section {

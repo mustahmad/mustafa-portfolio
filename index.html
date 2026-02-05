@@ -258,7 +258,7 @@
         </div>
         </div>
 
-        <!-- Portfolio Popup -->
+        <!-- Portfolio Popup (desktop hover) -->
         <div class="portfolio-popup" id="portfolioPopup">
             <div class="popup-image">
                 <img src="" alt="Project preview" id="popupImage">
@@ -266,6 +266,22 @@
             <div class="popup-content">
                 <h3 id="popupTitle"></h3>
                 <p id="popupDescription"></p>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal (mobile tap) -->
+        <div class="mobile-modal" id="mobileModal">
+            <div class="mobile-modal-overlay"></div>
+            <div class="mobile-modal-card">
+                <button class="mobile-modal-close" id="mobileModalClose">&times;</button>
+                <div class="mobile-modal-image">
+                    <img src="" alt="" id="modalImage">
+                </div>
+                <div class="mobile-modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <a href="#" target="_blank" class="cta-button primary mobile-modal-link" id="modalLink" data-ru="Открыть проект" data-en="Open project">Открыть проект</a>
+                </div>
             </div>
         </div>
 
@@ -658,19 +674,65 @@
                 });
             }
 
-            // Click handler for links — both mobile and desktop
-            allPortfolioItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const link = item.dataset.link;
-                    if (link) {
-                        window.open(link, '_blank');
-                    }
+            if (isMobile) {
+                // Mobile: tap to show modal with project info
+                const mobileModal = document.getElementById('mobileModal');
+                const modalImage = document.getElementById('modalImage');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalDescription = document.getElementById('modalDescription');
+                const modalLink = document.getElementById('modalLink');
+                const modalClose = document.getElementById('mobileModalClose');
+                const modalOverlay = mobileModal.querySelector('.mobile-modal-overlay');
+
+                allPortfolioItems.forEach(item => {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', () => {
+                        const title = item.dataset.title;
+                        const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
+                        const image = item.dataset.image;
+                        const link = item.dataset.link;
+
+                        modalTitle.textContent = title;
+                        modalDescription.textContent = description;
+                        modalImage.src = image;
+
+                        if (link) {
+                            modalLink.href = link;
+                            modalLink.classList.remove('hidden');
+                            modalLink.textContent = currentLang === 'ru' ? 'Открыть проект' : 'Open project';
+                        } else {
+                            modalLink.classList.add('hidden');
+                        }
+
+                        marqueeTrack.style.animationPlayState = 'paused';
+                        mobileModal.classList.add('visible');
+                        document.body.style.overflow = 'hidden';
+                    });
                 });
 
-                if (item.dataset.link) {
-                    item.style.cursor = 'pointer';
+                function closeMobileModal() {
+                    mobileModal.classList.remove('visible');
+                    document.body.style.overflow = '';
+                    marqueeTrack.style.animationPlayState = 'running';
                 }
-            });
+
+                modalClose.addEventListener('click', closeMobileModal);
+                modalOverlay.addEventListener('click', closeMobileModal);
+            } else {
+                // Desktop: click to open link
+                allPortfolioItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const link = item.dataset.link;
+                        if (link) {
+                            window.open(link, '_blank');
+                        }
+                    });
+
+                    if (item.dataset.link) {
+                        item.style.cursor = 'pointer';
+                    }
+                });
+            }
         }
 
         function showPopup(e) {
