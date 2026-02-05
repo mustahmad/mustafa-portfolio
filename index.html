@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мустафа Ахмадуллин — Digital-партнёр для вашего бизнеса</title>
+    <meta name="description" content="Дизайн, разработка сайтов, телеграм-боты и автоматизация. Комплексные digital-решения для роста вашего бизнеса.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo magnetic"><img src="assets/logo.png" alt="MA"></div>
+        <ul class="nav-links">
+            <li class="magnetic"><a href="#services" data-ru="Услуги" data-en="Services">Услуги</a></li>
+            <li class="magnetic"><a href="#portfolio" data-ru="Портфолио" data-en="Portfolio">Портфолио</a></li>
+            <li class="magnetic"><a href="#about" data-ru="Обо мне" data-en="About">Обо мне</a></li>
+            <li class="magnetic"><a href="#contact" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="nav-cta magnetic" data-ru="Обсудить проект" data-en="Start a project">Обсудить проект</a>
+        </div>
+    </nav>
+
+    <!-- Aurora Background (fixed, fullscreen) -->
+    <canvas id="auroraCanvas" class="aurora-bg"></canvas>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-label fade-in-up" data-ru="DIGITAL-ПАРТНЁР" data-en="DIGITAL PARTNER">DIGITAL-ПАРТНЁР</p>
+            <h1 class="split-text" data-ru="Превращаю идеи в работающий бизнес" data-en="Turning ideas into working business">Превращаю идеи в работающий бизнес</h1>
+            <p class="hero-subtitle fade-in-up delay-1" data-ru="Дизайн, сайты, боты и автоматизация — всё, что нужно для роста вашего проекта в одном месте" data-en="Design, websites, bots and automation — everything you need for your project growth in one place">Дизайн, сайты, боты и автоматизация — всё, что нужно для роста вашего проекта в одном месте</p>
+            <div class="hero-cta fade-in-up delay-2">
+                <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary magnetic" data-ru="Обсудить проект" data-en="Start a project">Обсудить проект</a>
+                <a href="#services" class="cta-button secondary magnetic" data-ru="Смотреть услуги" data-en="View services">Смотреть услуги</a>
+            </div>
+        </div>
+        <a href="#services" class="scroll-down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <p class="section-label fade-in-scroll" data-ru="ЧТО Я ДЕЛАЮ" data-en="WHAT I DO">ЧТО Я ДЕЛАЮ</p>
+            <h2 class="section-title fade-in-scroll" data-ru="Комплексные решения для вашего бизнеса" data-en="Complete solutions for your business">Комплексные решения для вашего бизнеса</h2>
+
+            <div class="services-grid">
+                <div class="service-card fade-in-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Брендинг и дизайн" data-en="Branding & Design">Брендинг и дизайн</h3>
+                    <p data-ru="Логотипы, фирменный стиль, брендбуки. Визуальная идентичность, которая выделяет вас среди конкурентов и вызывает доверие с первого взгляда." data-en="Logos, corporate identity, brand books. Visual identity that sets you apart from competitors and builds trust at first sight.">Логотипы, фирменный стиль, брендбуки. Визуальная идентичность, которая выделяет вас среди конкурентов и вызывает доверие с первого взгляда.</p>
+                    <ul class="service-list">
+                        <li data-ru="Логотип и айдентика" data-en="Logo and identity">Логотип и айдентика</li>
+                        <li data-ru="Брендбук" data-en="Brand book">Брендбук</li>
+                        <li data-ru="Презентации" data-en="Presentations">Презентации</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in-scroll delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Веб-дизайн и разработка" data-en="Web Design & Development">Веб-дизайн и разработка</h3>
+                    <p data-ru="Сайты, которые не просто красиво выглядят, а приносят заявки и продажи. От лендинга до многостраничного сайта под ключ." data-en="Websites that don't just look good, but bring leads and sales. From landing pages to multi-page websites, turnkey.">Сайты, которые не просто красиво выглядят, а приносят заявки и продажи. От лендинга до многостраничного сайта под ключ.</p>
+                    <ul class="service-list">
+                        <li data-ru="Лендинги" data-en="Landing pages">Лендинги</li>
+                        <li data-ru="Корпоративные сайты" data-en="Corporate websites">Корпоративные сайты</li>
+                        <li data-ru="Интернет-магазины" data-en="E-commerce">Интернет-магазины</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in-scroll delay-2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Телеграм-боты" data-en="Telegram Bots">Телеграм-боты</h3>
+                    <p data-ru="Боты, которые работают на вас 24/7: принимают заявки, отвечают клиентам, автоматизируют рутину. С веб-приложениями или без." data-en="Bots that work for you 24/7: receive applications, respond to clients, automate routine tasks. With web apps or without.">Боты, которые работают на вас 24/7: принимают заявки, отвечают клиентам, автоматизируют рутину. С веб-приложениями или без.</p>
+                    <ul class="service-list">
+                        <li data-ru="Боты для продаж" data-en="Sales bots">Боты для продаж</li>
+                        <li data-ru="Боты-помощники" data-en="Assistant bots">Боты-помощники</li>
+                        <li data-ru="Telegram Web Apps" data-en="Telegram Web Apps">Telegram Web Apps</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in-scroll delay-3">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Автоматизация" data-en="Automation">Автоматизация</h3>
+                    <p data-ru="Освобождаю ваше время от рутины. Интеграции, скрипты, автоматические воронки — всё, что можно автоматизировать, будет работать без вас." data-en="Freeing your time from routine. Integrations, scripts, automatic funnels — everything that can be automated will work without you.">Освобождаю ваше время от рутины. Интеграции, скрипты, автоматические воронки — всё, что можно автоматизировать, будет работать без вас.</p>
+                    <ul class="service-list">
+                        <li data-ru="CRM-интеграции" data-en="CRM integrations">CRM-интеграции</li>
+                        <li data-ru="Автоворонки" data-en="Auto-funnels">Автоворонки</li>
+                        <li data-ru="Парсинг и скрипты" data-en="Parsing and scripts">Парсинг и скрипты</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in-scroll delay-4">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Карточки товаров" data-en="Product Cards">Карточки товаров</h3>
+                    <p data-ru="Карточки для маркетплейсов, которые продают. Wildberries, Ozon, Яндекс.Маркет — дизайн, который выделяет ваш товар и увеличивает конверсию." data-en="Marketplace product cards that sell. Wildberries, Ozon, Yandex.Market — design that highlights your product and increases conversion.">Карточки для маркетплейсов, которые продают. Wildberries, Ozon, Яндекс.Маркет — дизайн, который выделяет ваш товар и увеличивает конверсию.</p>
+                    <ul class="service-list">
+                        <li data-ru="Инфографика" data-en="Infographics">Инфографика</li>
+                        <li data-ru="Рич-контент" data-en="Rich content">Рич-контент</li>
+                        <li data-ru="A/B тестирование" data-en="A/B testing">A/B тестирование</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in-scroll delay-5">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
+                    <h3 data-ru="Моушн-дизайн" data-en="Motion Design">Моушн-дизайн</h3>
+                    <p data-ru="Анимация, которая цепляет внимание. Анимированные логотипы, промо-ролики, UI-анимации для сайтов и приложений." data-en="Animation that grabs attention. Animated logos, promo videos, UI animations for websites and apps.">Анимация, которая цепляет внимание. Анимированные логотипы, промо-ролики, UI-анимации для сайтов и приложений.</p>
+                    <ul class="service-list">
+                        <li data-ru="Анимация логотипов" data-en="Logo animation">Анимация логотипов</li>
+                        <li data-ru="Промо-ролики" data-en="Promo videos">Промо-ролики</li>
+                        <li data-ru="UI-анимации" data-en="UI animations">UI-анимации</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="services-cta fade-in-scroll">
+                <p data-ru="Не знаете, что именно нужно? Расскажите о задаче — подберём решение вместе" data-en="Not sure what you need? Tell us about your task — we'll find a solution together">Не знаете, что именно нужно? Расскажите о задаче — подберём решение вместе</p>
+                <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary magnetic" data-ru="Бесплатная консультация" data-en="Free consultation">Бесплатная консультация</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section -->
+    <section id="why" class="why-section">
+        <div class="container">
+            <p class="section-label fade-in-scroll" data-ru="ПОЧЕМУ Я" data-en="WHY ME">ПОЧЕМУ Я</p>
+            <h2 class="section-title fade-in-scroll" data-ru="Один исполнитель — вместо пяти подрядчиков" data-en="One contractor — instead of five vendors">Один исполнитель — вместо пяти подрядчиков</h2>
+
+            <div class="why-grid">
+                <div class="why-card fade-in-scroll">
+                    <span class="why-number">01</span>
+                    <h3 data-ru="Всё в одном месте" data-en="All in one place">Всё в одном месте</h3>
+                    <p data-ru="Дизайн, разработка, автоматизация. Не нужно искать разных специалистов и объяснять задачу каждому заново." data-en="Design, development, automation. No need to find different specialists and explain the task to each one again.">Дизайн, разработка, автоматизация. Не нужно искать разных специалистов и объяснять задачу каждому заново.</p>
+                </div>
+                <div class="why-card fade-in-scroll delay-1">
+                    <span class="why-number">02</span>
+                    <h3 data-ru="Понимаю бизнес" data-en="I understand business">Понимаю бизнес</h3>
+                    <p data-ru="Не просто делаю красиво — делаю так, чтобы работало на ваши цели. Каждое решение направлено на результат." data-en="I don't just make it pretty — I make it work for your goals. Every solution is aimed at results.">Не просто делаю красиво — делаю так, чтобы работало на ваши цели. Каждое решение направлено на результат.</p>
+                </div>
+                <div class="why-card fade-in-scroll delay-2">
+                    <span class="why-number">03</span>
+                    <h3 data-ru="На связи" data-en="Always available">На связи</h3>
+                    <p data-ru="Быстро отвечаю, держу в курсе на каждом этапе. Вы всегда знаете, что происходит с проектом." data-en="I respond quickly and keep you updated at every stage. You always know what's happening with your project.">Быстро отвечаю, держу в курсе на каждом этапе. Вы всегда знаете, что происходит с проектом.</p>
+                </div>
+                <div class="why-card fade-in-scroll delay-3">
+                    <span class="why-number">04</span>
+                    <h3 data-ru="Реальный опыт" data-en="Real experience">Реальный опыт</h3>
+                    <p data-ru="Сооснователь дизайн-агентства Vibe Design. Работал с бизнесами разного масштаба — от стартапов до крупных мероприятий." data-en="Co-founder of Vibe Design agency. Worked with businesses of different scales — from startups to major events.">Сооснователь дизайн-агентства Vibe Design. Работал с бизнесами разного масштаба — от стартапов до крупных мероприятий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <p class="section-label fade-in-scroll" data-ru="ПОРТФОЛИО" data-en="PORTFOLIO">ПОРТФОЛИО</p>
+            <h2 class="section-title fade-in-scroll" data-ru="Проекты, которые работают" data-en="Projects that work">Проекты, которые работают</h2>
+        </div>
+        <div class="marquee-glass">
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- Portfolio items -->
+                <div class="portfolio-item" data-title="Mustafa Website" data-description-ru="Личный сайт-портфолио. Полностью спроектировал дизайн и написал код с нуля." data-description-en="Personal portfolio website. Fully designed and coded from scratch." data-image="assets/screen_mustafa.png">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_mustafa.png" alt="Mustafa Website">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Heritage" data-description-ru="Интернет-бутик мужской классической одежды. Дизайн и разработка сайта." data-description-en="Online boutique for men's classic clothing. Website design and development." data-image="assets/screen_heritage.png" data-link="https://heritage-men.netlify.app/">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_heritage.png" alt="Heritage">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Afifa" data-description-ru="Телеграм-бот для ресторана арабской кухни. Меню, бронирование, заказы." data-description-en="Telegram bot for Arabic cuisine restaurant. Menu, reservations, orders." data-image="assets/screen_afifa.png" data-link="https://t.me/afifarestaurantbot">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_afifa.jpg" alt="Afifa">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Hatm" data-description-ru="Телеграм-бот для отслеживания прогресса чтения Корана." data-description-en="Telegram bot for tracking Quran reading progress." data-image="assets/screen_hatm.png" data-link="https://t.me/hatmQuran_bot">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_hatm.png" alt="Hatm">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Push-ups" data-description-ru="Телеграм-бот для отслеживания тренировок и отжиманий." data-description-en="Telegram bot for tracking workouts and push-ups." data-image="assets/screen_pushups.png" data-link="https://t.me/doPushups_bot">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_pushups.jpg" alt="Push-ups">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Xiaomi Vacuum" data-description-ru="Карточка товара для WB, Ozon. Робот-пылесос Xiaomi." data-description-en="Product card for WB, Ozon. Xiaomi robot vacuum cleaner." data-image="assets/screen_xiaomi_vacuum.png" data-link="https://www.wildberries.ru/catalog/232434044/detail.aspx">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_xiaomi.png" alt="Xiaomi">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Smart Watch" data-description-ru="Карточка товара для WB, Ozon. Смарт-часы Xiaomi." data-description-en="Product card for WB, Ozon. Xiaomi smart watch." data-image="assets/screen_smartwatch.png">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_smartwatch.svg" alt="Smart Watch">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Bombbar" data-description-ru="Карточка товара для WB, Ozon. Протеин Bombbar." data-description-en="Product card for WB, Ozon. Bombbar protein." data-image="assets/screen_bombbar.png" data-link="https://www.ozon.ru/product/bombbar-protein-syvorotochnyy-bez-sahara-whey-protein-pro-shokolad-900-g-958702856/">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_bombbar.png" alt="Bombbar" class="logo-wide">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="Vitameal" data-description-ru="Карточка товара для WB, Ozon. Калия цитрат — полезные добавки." data-description-en="Product card for WB, Ozon. Potassium citrate — health supplements." data-image="assets/screen_vitameal.png" data-link="https://www.ozon.ru/product/kaliy-tsitrat-vitameal-dlya-serdtsa-i-sosudov-normalizatsii-davleniya-protiv-sudorog-1973642043/">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_vitameal.png" alt="Vitameal">
+                    </div>
+                </div>
+                <div class="portfolio-item" data-title="DutyBox" data-description-ru="Карточка товара для WB, Ozon. Гель для мытья посуды DutyBox." data-description-en="Product card for WB, Ozon. DutyBox dishwashing gel." data-image="assets/screen_dutybox.png" data-link="https://www.wildberries.ru/catalog/161224650/detail.aspx">
+                    <div class="portfolio-logo">
+                        <img src="assets/logo_dutybox.png" alt="DutyBox">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Portfolio Popup -->
+        <div class="portfolio-popup" id="portfolioPopup">
+            <div class="popup-image">
+                <img src="" alt="Project preview" id="popupImage">
+            </div>
+            <div class="popup-content">
+                <h3 id="popupTitle"></h3>
+                <p id="popupDescription"></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="portfolio-cta fade-in-scroll">
+                <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary magnetic" data-ru="Хочу так же" data-en="I want this too">Хочу так же</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in-scroll">
+                    <div class="about-photo">
+                        <img src="assets/carousel_2.jpg" alt="Мустафа Ахмадуллин">
+                    </div>
+                </div>
+                <div class="about-text fade-in-scroll">
+                    <p class="section-label" data-ru="ОБО МНЕ" data-en="ABOUT ME">ОБО МНЕ</p>
+                    <h2 data-ru="Мустафа Ахмадуллин" data-en="Mustafa Akhmadullin">Мустафа Ахмадуллин</h2>
+                    <p class="about-lead" data-ru="Сооснователь дизайн-агентства Vibe Design. Помогаю бизнесам расти через дизайн и технологии." data-en="Co-founder of Vibe Design agency. Helping businesses grow through design and technology.">Сооснователь дизайн-агентства Vibe Design. Помогаю бизнесам расти через дизайн и технологии.</p>
+                    <p data-ru="Занимаюсь комплексными digital-решениями: от разработки фирменного стиля до создания сайтов и автоматизации бизнес-процессов. За плечами — десятки проектов для бизнесов разного масштаба." data-en="I specialize in comprehensive digital solutions: from developing corporate identity to creating websites and automating business processes. Behind me — dozens of projects for businesses of different scales.">Занимаюсь комплексными digital-решениями: от разработки фирменного стиля до создания сайтов и автоматизации бизнес-процессов. За плечами — десятки проектов для бизнесов разного масштаба.</p>
+                    <p data-ru="Участвовал в организации крупных мероприятий TATFORUM: Всемирный форум татарской молодежи, «Милләт җыены», «Печән базары» и другие — понимаю, как работает большой бизнес изнутри." data-en="Participated in organizing major TATFORUM events: World Forum of Tatar Youth, «Millət Cıyenı», «Pechən Bazarı» and others — I understand how big business works from the inside.">Участвовал в организации крупных мероприятий TATFORUM: Всемирный форум татарской молодежи, «Милләт җыены», «Печән базары» и другие — понимаю, как работает большой бизнес изнутри.</p>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label" data-ru="проектов" data-en="projects">проектов</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label" data-ru="года опыта" data-en="years of experience">года опыта</span>
+                        </div>
+                        <div class="stat stat-vibe">
+                            <img src="assets/logo_vibe.svg" alt="Vibe" class="stat-vibe-logo">
+                            <span class="stat-label" data-ru="Design Agency" data-en="Design Agency">Design Agency</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in-scroll">
+                <h2 data-ru="Готовы начать проект?" data-en="Ready to start a project?">Готовы начать проект?</h2>
+                <p data-ru="Расскажите о вашей задаче — обсудим, как я могу помочь. Консультация бесплатная." data-en="Tell me about your task — let's discuss how I can help. Consultation is free.">Расскажите о вашей задаче — обсудим, как я могу помочь. Консультация бесплатная.</p>
+                <a href="https://t.me/T_a_t_a_r_s_t_a_nn" class="cta-button primary large magnetic" data-ru="Написать в Telegram" data-en="Message on Telegram">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="MA">
+                    <span>Mustafa Akhmadullin</span>
+                </div>
+                <div class="social-links">
+                    <div class="icon-content">
+                        <a href="https://t.me/T_a_t_a_r_s_t_a_nn" target="_blank" data-social="telegram">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                        </a>
+                        <span class="tooltip">Telegram</span>
+                    </div>
+                    <div class="icon-content">
+                        <a href="https://www.instagram.com/mus__fa_?igsh=dGV0OGVoMHpmbGsw&utm_source=qr" target="_blank" data-social="instagram">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <span class="tooltip">Instagram</span>
+                    </div>
+                    <div class="icon-content">
+                        <a href="https://vk.ru/mustik00" target="_blank" data-social="vk">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.745-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.57 4 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+                            </svg>
+                        </a>
+                        <span class="tooltip">VK</span>
+                    </div>
+                    <div class="icon-content">
+                        <a href="https://www.tiktok.com/@akhmadullin_14?_r=1&_t=ZS-93E7LsRO14e" target="_blank" data-social="tiktok">
+                            <div class="filled"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                            </svg>
+                        </a>
+                        <span class="tooltip">TikTok</span>
+                    </div>
+                    <div class="icon-content">
+                        <a href="#" data-social="max" onclick="return false;">
+                            <div class="filled"></div>
+                            <img src="assets/max_logo.svg" alt="Max" class="social-icon-img">
+                        </a>
+                        <span class="tooltip">Max</span>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2026 Mustafa Akhmadullin. <span data-ru="Все права защищены" data-en="All rights reserved">Все права защищены</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        let currentLang = 'ru';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            document.documentElement.lang = lang;
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Mobile detection
+        const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // Smooth Scroll (Lenis) — skip on mobile
+        if (!isMobile) {
+            const lenis = new Lenis()
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+            requestAnimationFrame(raf)
+        }
+
+        // Magnetic Buttons — skip on mobile (no hover)
+        if (!isMobile) {
+            const magneticElements = document.querySelectorAll('.magnetic');
+            magneticElements.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+                });
+            });
+        }
+
+        // Aurora Borealis Effect — only on desktop
+        const auroraCanvas = document.getElementById('auroraCanvas');
+
+        if (!isMobile) {
+            const ctx = auroraCanvas.getContext('2d');
+
+            // Offscreen canvas for glass distortion
+            const glassCanvas = document.createElement('canvas');
+            const glassCtx = glassCanvas.getContext('2d');
+
+            function resizeCanvas() {
+                auroraCanvas.width = window.innerWidth;
+                auroraCanvas.height = window.innerHeight;
+                glassCanvas.width = window.innerWidth;
+                glassCanvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Large color blobs like reference image (static positions)
+            const blobs = [
+                {
+                    x: 0.15, y: 0.25,
+                    radius: 0.6,
+                    color: { r: 90, g: 190, b: 110 }  // Green (left)
+                },
+                {
+                    x: 0.85, y: 0.2,
+                    radius: 0.55,
+                    color: { r: 80, g: 50, b: 200 }  // Purple (right)
+                },
+                {
+                    x: 0.5, y: 0.15,
+                    radius: 0.4,
+                    color: { r: 60, g: 100, b: 180 }  // Blue (center-top)
+                }
+            ];
+
+            // Cursor trail for brush effect
+            const trailLength = 25;
+            const trail = [];
+            let cursorX = window.innerWidth / 2;
+            let cursorY = window.innerHeight / 2;
+            let prevCursorX = cursorX;
+            let prevCursorY = cursorY;
+            let glowIntensity = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                cursorX = e.clientX;
+                cursorY = e.clientY;
+            });
+
+            function drawAurora() {
+                const w = auroraCanvas.width;
+                const h = auroraCanvas.height;
+
+                // Calculate speed for fade effect
+                const dx = cursorX - prevCursorX;
+                const dy = cursorY - prevCursorY;
+                const speed = Math.sqrt(dx * dx + dy * dy);
+
+                // Fade glow based on movement
+                if (speed > 1) {
+                    glowIntensity += (1 - glowIntensity) * 0.08;
+                } else {
+                    glowIntensity *= 0.96;
+                }
+
+                prevCursorX = cursorX;
+                prevCursorY = cursorY;
+
+                // Add current position to trail
+                trail.push({ x: cursorX, y: cursorY });
+
+                // Keep trail at max length
+                while (trail.length > trailLength) {
+                    trail.shift();
+                }
+
+                // Clear with dark background
+                ctx.fillStyle = '#0a0a12';
+                ctx.fillRect(0, 0, w, h);
+
+                // Draw static color blobs
+                blobs.forEach((blob) => {
+                    const centerX = blob.x * w;
+                    const centerY = blob.y * h;
+                    const radius = blob.radius * Math.max(w, h);
+
+                    const gradient = ctx.createRadialGradient(
+                        centerX, centerY, 0,
+                        centerX, centerY, radius
+                    );
+
+                    const { r, g, b } = blob.color;
+                    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0.8)`);
+                    gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, 0.4)`);
+                    gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, 0.15)`);
+                    gradient.addColorStop(1, 'transparent');
+
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, w, h);
+                });
+
+                // Glass refraction — smooth radial displacement
+                if (glowIntensity > 0.005 && speed > 0.5) {
+                    const intensity = glowIntensity * Math.min(speed / 3, 1);
+                    const maxD = 50;
+                    const dX = Math.max(-maxD, Math.min(maxD, dx * 10));
+                    const dY = Math.max(-maxD, Math.min(maxD, dy * 10));
+                    const baseRadius = 250;
+
+                    // Save clean aurora copy to offscreen
+                    glassCtx.clearRect(0, 0, w, h);
+                    glassCtx.drawImage(auroraCanvas, 0, 0);
+
+                    // Concentric rings: outer=invisible, inner=full displacement
+                    const steps = 24;
+                    for (let i = steps; i >= 1; i--) {
+                        const t = i / steps;
+                        const ringRadius = baseRadius * t;
+                        const strength = 1 - t;
+                        const fade = strength * strength * strength; // cubic — very smooth gradient
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(cursorX, cursorY, ringRadius, 0, Math.PI * 2);
+                        ctx.clip();
+                        ctx.globalAlpha = Math.min(fade * intensity * 2, 1);
+                        ctx.drawImage(glassCanvas, dX * strength, dY * strength);
+                        ctx.restore();
+                    }
+                }
+
+                requestAnimationFrame(drawAurora);
+            }
+
+            drawAurora();
+        }
+
+        // Text Splitting Animation
+        const splitText = document.querySelector('.split-text');
+        const text = splitText.innerText;
+
+        if (!isMobile) {
+            // Full char-by-char animation on desktop
+            splitText.innerHTML = text.split('').map(char => `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+
+            gsap.from('.char', {
+                opacity: 0,
+                y: 50,
+                rotateX: -90,
+                stagger: 0.03,
+                duration: 0.8,
+                ease: "back.out(1.7)",
+                delay: 0.3
+            });
+        } else {
+            // Simple fade-in on mobile — no per-char splitting
+            splitText.style.opacity = '0';
+            splitText.style.transform = 'translateY(20px)';
+            splitText.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            requestAnimationFrame(() => {
+                splitText.style.opacity = '1';
+                splitText.style.transform = 'translateY(0)';
+            });
+        }
+
+
+        // Intersection Observer for fade animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el));
+
+        // Portfolio Marquee
+        const marqueeTrack = document.querySelector('.marquee-track');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const popup = document.getElementById('portfolioPopup');
+        const popupImage = document.getElementById('popupImage');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupDescription = document.getElementById('popupDescription');
+
+        // Duplicate items for seamless loop
+        if (marqueeTrack) {
+            portfolioItems.forEach(item => {
+                const clone = item.cloneNode(true);
+                marqueeTrack.appendChild(clone);
+            });
+
+            const allPortfolioItems = document.querySelectorAll('.portfolio-item');
+
+            if (!isMobile) {
+                // Desktop: popup on hover, pause marquee
+                marqueeTrack.addEventListener('mouseenter', () => {
+                    marqueeTrack.style.animationPlayState = 'paused';
+                });
+
+                marqueeTrack.addEventListener('mouseleave', () => {
+                    marqueeTrack.style.animationPlayState = 'running';
+                    hidePopup();
+                });
+
+                allPortfolioItems.forEach(item => {
+                    item.addEventListener('mouseenter', (e) => {
+                        const title = item.dataset.title;
+                        const description = currentLang === 'ru' ? item.dataset.descriptionRu : item.dataset.descriptionEn;
+                        const image = item.dataset.image;
+
+                        popupTitle.textContent = title;
+                        popupDescription.textContent = description;
+                        popupImage.src = image;
+
+                        showPopup(e);
+                    });
+
+                    item.addEventListener('mousemove', (e) => {
+                        movePopup(e);
+                    });
+
+                    item.addEventListener('mouseleave', () => {
+                        hidePopup();
+                    });
+                });
+            }
+
+            // Click handler for links — both mobile and desktop
+            allPortfolioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const link = item.dataset.link;
+                    if (link) {
+                        window.open(link, '_blank');
+                    }
+                });
+
+                if (item.dataset.link) {
+                    item.style.cursor = 'pointer';
+                }
+            });
+        }
+
+        function showPopup(e) {
+            popup.classList.add('visible');
+            movePopup(e);
+        }
+
+        function movePopup(e) {
+            const x = e.clientX + 20;
+            const y = e.clientY - popup.offsetHeight / 2;
+            popup.style.left = `${x}px`;
+            popup.style.top = `${y}px`;
+        }
+
+        function hidePopup() {
+            popup.classList.remove('visible');
+        }
+    </script>
+</body>
+
+</html>
